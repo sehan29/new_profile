@@ -36,6 +36,63 @@ const PROJECTS = [
     accent: "#6c8ef5",
     icon: "📦",
   },
+
+  {
+  title: "Real-Time Technician Monitoring System",
+  subtitle: "React · Node.js · MySQL · WebSocket",
+  desc: "Real-time workshop monitoring platform for tracking technician tasks, task progress, and performance analytics. Provides live status updates, workflow visibility, and operational insights to improve workshop productivity and resource allocation.",
+  tags: ["React", "Node.js", "Real-Time", "Analytics"],
+  accent: "#ff6b6b",
+  icon: "📊",
+},
+{
+  title: "AI Tea Leaf Disease Detection",
+  subtitle: "CNN · React · Node.js · Deep Learning",
+  desc: "AI-powered tea leaf disease detection system using Convolutional Neural Networks (CNN) for image-based disease diagnosis. Delivers real-time predictions, treatment recommendations, and preventive measures for sustainable tea cultivation.",
+  tags: ["AI/ML", "CNN", "Agriculture", "React"],
+  accent: "#22c55e",
+  icon: "🍃",
+},
+{
+  title: "SLT ChatHub",
+  subtitle: "Flutter · Flask · MongoDB · WebSocket",
+  desc: "Secure enterprise-grade real-time messaging platform developed without third-party messaging services. Supports private and group chats, media sharing, offline messaging, and an integrated AI assistant with full data privacy.",
+  tags: ["Flutter", "Flask", "MongoDB", "WebSocket"],
+  accent: "#8b5cf6",
+  icon: "💬",
+},
+{
+  title: "Complaint Management System",
+  subtitle: "Laravel · MySQL · Bootstrap",
+  desc: "Comprehensive complaint management platform featuring role-based access control, complaint tracking, notifications, reporting dashboards, escalation workflows, and responsive user interfaces for efficient issue resolution.",
+  tags: ["Laravel", "MySQL", "Dashboard", "Workflow"],
+  accent: "#f59e0b",
+  icon: "📋",
+},
+{
+  title: "Developer Portfolio",
+  subtitle: "React · Node.js · Responsive Design",
+  desc: "Interactive portfolio website showcasing projects, technical skills, certifications, and professional experience with modern UI/UX design, smooth animations, and responsive layouts.",
+  tags: ["React", "Portfolio", "UI/UX", "Frontend"],
+  accent: "#06b6d4",
+  icon: "🎨",
+},
+{
+  title: "To-Do Mobile Application",
+  subtitle: "Java · Android Studio · SQLite",
+  desc: "Feature-rich Android task management application with offline support, local data storage, intuitive user interface, and productivity-focused features for efficient task organization.",
+  tags: ["Android", "Java", "SQLite", "Mobile"],
+  accent: "#ef4444",
+  icon: "✅",
+},
+{
+  title: "Gamified Learning Management System",
+  subtitle: "Laravel · JavaScript · MySQL",
+  desc: "Educational platform developed for RoyalKids Institute that integrates gamification concepts into learning. Features interactive learning modules, progress tracking, rewards, and student engagement tools.",
+  tags: ["Laravel", "Education", "Gamification", "Web"],
+  accent: "#f97316",
+  icon: "🎓",
+},
 ];
 
 const CERTS = [
@@ -115,7 +172,7 @@ const GLOBAL_CSS = `
   /* ── section container ── */
   .section-inner {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 clamp(1rem, 5vw, 3rem);
   }
@@ -130,16 +187,43 @@ const GLOBAL_CSS = `
     .grid-2 { grid-template-columns: 1fr; gap: 40px; }
   }
 
-  /* ── about grid (wider gap) ── */
+  /* ── about grid: photo | bio | skills ── */
   .grid-about {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    grid-template-columns: 260px 1fr 1fr;
+    gap: 48px;
     align-items: start;
   }
-  @media (max-width: 860px) {
-    .grid-about { grid-template-columns: 1fr; gap: 40px; }
+  @media (max-width: 1020px) {
+    .grid-about { grid-template-columns: 200px 1fr; gap: 36px; }
+    .grid-about .skills-col { grid-column: 1 / -1; }
   }
+  @media (max-width: 680px) {
+    .grid-about { grid-template-columns: 1fr; gap: 32px; }
+    .grid-about .skills-col { grid-column: auto; }
+  }
+
+  /* profile image wrapper */
+  .profile-wrap {
+    position: sticky;
+    top: 88px;
+  }
+  .profile-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0,212,170,.18);
+    background: rgba(0,212,170,.04);
+  }
+  .profile-img-box img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    transition: transform .5s ease;
+  }
+  .profile-img-box:hover img { transform: scale(1.04); }
 
   /* ── stat cards row ── */
   .stat-row {
@@ -410,7 +494,11 @@ function HomeSection() {
 
 /* ══════════════════════════════════════════
    ABOUT
+   Replace PROFILE_IMG with your image path,
+   e.g. "/sehan.jpg" or "./assets/profile.png"
 ══════════════════════════════════════════ */
+const PROFILE_IMG = "https://i.pravatar.cc/600?img=11"; // ← swap with your image path
+
 function AboutSection() {
   return (
     <section id="about" style={{ padding: "90px 0", background: "#060c1e" }}>
@@ -423,13 +511,58 @@ function AboutSection() {
         </FadeIn>
 
         <div className="grid-about">
-          <FadeIn delay={0.1}>
+
+          {/* ── col 1: profile photo ── */}
+          <FadeIn delay={0.05}>
+            <div className="profile-wrap">
+              <div className="profile-img-box">
+                <img src={PROFILE_IMG} alt="Sehan Hansaja" />
+
+              {/* decorative accent ring */}
+              <div style={{
+                position: "relative", marginTop: -16, marginLeft: 16,
+                width: 48, height: 48, borderRadius: "50%",
+                background: "linear-gradient(135deg,#00d4aa,#6c8ef5)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                border: "3px solid #060c1e",
+                zIndex: 1,
+              }}>
+                <span style={{ fontFamily: "'Syne',sans-serif", fontSize: 14, fontWeight: 800, color: "#04060e" }}>SH</span>
+              </div>
+
+              {/* mini info card */}
+              <div style={{
+                marginTop: 16,
+                background: "rgba(255,255,255,.02)", border: "1px solid rgba(255,255,255,.06)",
+                borderRadius: 14, padding: "14px 16px",
+              }}>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 2 }}>Sehan Hansaja</div>
+                <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: "#00d4aa", marginBottom: 10 }}>Software Engineer Intern</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+                  {[
+                    { icon: "🎓", text: "Univ. of Colombo" },
+                    { icon: "📍", text: "Sri Lanka" },
+                    { icon: "💼", text: "Sri Lanka Telecom" },
+                  ].map(item => (
+                    <div key={item.text} style={{ display: "flex", gap: 7, alignItems: "center" }}>
+                      <span style={{ fontSize: 11 }}>{item.icon}</span>
+                      <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: "rgba(255,255,255,.4)" }}>{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            </div>
+          </FadeIn>
+
+          {/* ── col 2: bio + stats ── */}
+          <FadeIn delay={0.12}>
             <div>
-              <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(1.8rem,3.5vw,2.8rem)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: 22, letterSpacing: "-1px" }}>
+              <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(1.7rem,3vw,2.6rem)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: 20, letterSpacing: "-1px" }}>
                 Building the future,<br /><span style={{ color: "#00d4aa" }}>one line at a time.</span>
               </h2>
-              <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 15, color: "rgba(255,255,255,.52)", lineHeight: 1.85, marginBottom: 18 }}>
-                I'm an ICT undergraduate at the University of Colombo (CGPA: 3.71) with hands-on internship experience at Sri Lanka Telecom. I'm passionate about building AI-powered, user-focused software solutions.
+              <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 15, color: "rgba(255,255,255,.52)", lineHeight: 1.85, marginBottom: 16 }}>
+                I'm an ICT undergraduate at the University of Colombo (CGPA: 3.71) with hands-on internship experience at Sri Lanka Telecom. Passionate about building AI-powered, user-focused software solutions.
               </p>
               <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 15, color: "rgba(255,255,255,.52)", lineHeight: 1.85 }}>
                 My interests span software engineering, artificial intelligence, cybersecurity, and modern web development. I thrive in collaborative environments and love turning complex problems into elegant solutions.
@@ -446,31 +579,46 @@ function AboutSection() {
                   </div>
                 ))}
               </div>
+
+              {/* soft skills */}
+              <div style={{ marginTop: 28 }}>
+                <h3 style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: "rgba(255,255,255,.35)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 14 }}>Soft Skills</h3>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+                  {["Problem Solving", "Teamwork", "Communication", "Agile Development"].map(skill => (
+                    <span key={skill} style={{
+                      fontFamily: "'DM Sans',sans-serif", fontSize: 12,
+                      background: "rgba(108,142,245,.08)", color: "#6c8ef5",
+                      border: "1px solid rgba(108,142,245,.18)", padding: "5px 13px", borderRadius: 100,
+                    }}>{skill}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </FadeIn>
 
+          {/* ── col 3: tech stack ── */}
           <FadeIn delay={0.2}>
-            <div>
-              <h3 style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: "#00d4aa", letterSpacing: 3, textTransform: "uppercase", marginBottom: 24 }}>Tech Stack</h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div className="skills-col">
+              <h3 style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: "#00d4aa", letterSpacing: 3, textTransform: "uppercase", marginBottom: 20 }}>Tech Stack</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {SKILLS.map(s => (
                   <div key={s.category} style={{
                     background: "rgba(255,255,255,.02)", border: "1px solid rgba(255,255,255,.05)",
-                    borderRadius: 12, padding: "13px 18px", transition: "border-color .3s",
+                    borderRadius: 12, padding: "12px 16px", transition: "border-color .3s",
                   }}
                     onMouseEnter={e => e.currentTarget.style.borderColor = "rgba(0,212,170,.22)"}
                     onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,.05)"}
                   >
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-                      <span style={{ fontSize: 14 }}>{s.icon}</span>
-                      <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,.45)", letterSpacing: 1.5, textTransform: "uppercase" }}>{s.category}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 7 }}>
+                      <span style={{ fontSize: 13 }}>{s.icon}</span>
+                      <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 700, color: "rgba(255,255,255,.4)", letterSpacing: 1.5, textTransform: "uppercase" }}>{s.category}</span>
                     </div>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                       {s.items.map(item => (
                         <span key={item} style={{
-                          fontFamily: "'DM Sans',sans-serif", fontSize: 12,
-                          background: "rgba(0,212,170,.08)", color: "#00d4aa",
-                          border: "1px solid rgba(0,212,170,.15)", padding: "3px 10px", borderRadius: 100,
+                          fontFamily: "'DM Sans',sans-serif", fontSize: 11,
+                          background: "rgba(0,212,170,.07)", color: "#00d4aa",
+                          border: "1px solid rgba(0,212,170,.14)", padding: "2px 9px", borderRadius: 100,
                         }}>{item}</span>
                       ))}
                     </div>
@@ -479,6 +627,7 @@ function AboutSection() {
               </div>
             </div>
           </FadeIn>
+
         </div>
       </div>
     </section>
