@@ -497,7 +497,7 @@ function HomeSection() {
    Replace PROFILE_IMG with your image path,
    e.g. "/sehan.jpg" or "./assets/profile.png"
 ══════════════════════════════════════════ */
-const PROFILE_IMG = "./assets/profile.png"; // ← swap with your image path
+const PROFILE_IMG = "./src/assets/profile.jpeg"; // ← swap with your image path
 
 function AboutSection() {
   return (
@@ -896,7 +896,7 @@ function ContactSection() {
             {[
               { icon: "📧", label: "Email", value: "sehanhansu@gmail.com", href: "mailto:sehanhansu@gmail.com" },
               { icon: "📱", label: "Phone", value: "+94 70 287 6795", href: "tel:+94702876795" },
-              { icon: "🔗", label: "LinkedIn", value: "Connect on LinkedIn", href: "#" },
+              { icon: "🔗", label: "LinkedIn", value: "Connect on LinkedIn", href: "https://www.linkedin.com/in/sehan-gamage-498350287/" },
             ].map(item => (
               <a key={item.label} href={item.href} style={{
                 background: "rgba(255,255,255,.02)", border: "1px solid rgba(255,255,255,.07)",
@@ -915,59 +915,6 @@ function ContactSection() {
                 </div>
               </a>
             ))}
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <div style={{ background: "rgba(255,255,255,.02)", border: "1px solid rgba(255,255,255,.06)", borderRadius: 18, padding: "clamp(24px,4vw,38px)" }}>
-            {sent ? (
-              <div style={{ textAlign: "center", padding: "20px 0" }}>
-                <div style={{ fontSize: 44, marginBottom: 14 }}>✅</div>
-                <h3 style={{ fontFamily: "'Syne',sans-serif", fontSize: 20, fontWeight: 700, color: "#fff", marginBottom: 8 }}>Message Sent!</h3>
-                <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: "rgba(255,255,255,.45)" }}>Thanks for reaching out. I'll get back to you soon.</p>
-              </div>
-            ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-                <div className="form-row">
-                  {[{ name: "name", label: "Your Name", placeholder: "John Doe" }, { name: "email", label: "Email Address", placeholder: "john@example.com" }].map(field => (
-                    <div key={field.name}>
-                      <label style={{ display: "block", fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: "rgba(255,255,255,.38)", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 8 }}>{field.label}</label>
-                      <input name={field.name} value={form[field.name]} onChange={handleChange} placeholder={field.placeholder} style={{
-                        width: "100%", background: "rgba(255,255,255,.04)",
-                        border: "1px solid rgba(255,255,255,.08)", borderRadius: 9,
-                        padding: "11px 14px", color: "#fff",
-                        fontFamily: "'DM Sans',sans-serif", fontSize: 14, outline: "none",
-                        transition: "border-color .2s",
-                      }}
-                        onFocus={e => e.target.style.borderColor = "rgba(0,212,170,.4)"}
-                        onBlur={e => e.target.style.borderColor = "rgba(255,255,255,.08)"}
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <label style={{ display: "block", fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: "rgba(255,255,255,.38)", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 8 }}>Message</label>
-                  <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell me about your project or opportunity..." rows={5} style={{
-                    width: "100%", background: "rgba(255,255,255,.04)",
-                    border: "1px solid rgba(255,255,255,.08)", borderRadius: 9,
-                    padding: "11px 14px", color: "#fff",
-                    fontFamily: "'DM Sans',sans-serif", fontSize: 14, outline: "none",
-                    resize: "vertical", transition: "border-color .2s",
-                  }}
-                    onFocus={e => e.target.style.borderColor = "rgba(0,212,170,.4)"}
-                    onBlur={e => e.target.style.borderColor = "rgba(255,255,255,.08)"}
-                  />
-                </div>
-                <button onClick={handleSubmit} style={{
-                  background: "#00d4aa", color: "#04060e", border: "none", borderRadius: 11,
-                  padding: "13px 36px", fontFamily: "'DM Sans',sans-serif", fontSize: 14, fontWeight: 700,
-                  cursor: "pointer", alignSelf: "flex-end", transition: "transform .2s,box-shadow .2s",
-                }}
-                  onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 8px 22px rgba(0,212,170,.3)"; }}
-                  onMouseLeave={e => { e.target.style.transform = ""; e.target.style.boxShadow = ""; }}
-                >Send Message →</button>
-              </div>
-            )}
           </div>
         </FadeIn>
 
