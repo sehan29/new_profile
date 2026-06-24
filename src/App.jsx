@@ -569,7 +569,7 @@ function AboutSection() {
               </p>
 
               <div className="stat-row">
-                {[{ label: "CGPA", value: "3.71" }, { label: "Projects", value: "20+" }, { label: "Certs", value: "5+" }].map(s => (
+                {[{ label: "CGPA", value: "3.71" }, { label: "Projects", value: "20+" }, { label: "Certs", value: "15+" }].map(s => (
                   <div key={s.label} style={{
                     background: "rgba(255,255,255,.03)", border: "1px solid rgba(255,255,255,.06)",
                     borderRadius: 12, padding: "14px 22px", textAlign: "center",
