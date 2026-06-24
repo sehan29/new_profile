@@ -497,7 +497,7 @@ function HomeSection() {
    Replace PROFILE_IMG with your image path,
    e.g. "/sehan.jpg" or "./assets/profile.png"
 ══════════════════════════════════════════ */
-const PROFILE_IMG = "https://i.pravatar.cc/600?img=11"; // ← swap with your image path
+const PROFILE_IMG = "./assets/profile.png"; // ← swap with your image path
 
 function AboutSection() {
   return (
@@ -973,7 +973,7 @@ function ContactSection() {
 
         <div style={{ textAlign: "center", marginTop: 72, paddingTop: 28, borderTop: "1px solid rgba(255,255,255,.05)" }}>
           <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: "rgba(255,255,255,.18)" }}>
-            © 2025 Sehan Hansaja · Built with React
+            © 2026 Sehan Hansaja · Powered by SH Technology
           </p>
         </div>
       </div>
