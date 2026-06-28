@@ -497,7 +497,7 @@ function HomeSection() {
    Replace PROFILE_IMG with your image path,
    e.g. "/sehan.jpg" or "./assets/profile.png"
 ══════════════════════════════════════════ */
-const PROFILE_IMG = "/profile.jpeg"; // ← swap with your image path
+const PROFILE_IMG = "/profile_1.png"; // ← swap with your image path
 
 function AboutSection() {
   return (
