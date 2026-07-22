@@ -9,7 +9,7 @@ export const portfolioData = {
   website: 'https://www.sehandeveloper.tech',
   linkedin: 'https://www.linkedin.com/in/sehan-gamage-498350287/',
   github: 'https://github.com/sehan29',
-  profileImage: '/profile-placeholder.svg',
+  profileImage: '/profile.PNG',
   heroStatement:
     'I build intelligent, scalable and human-centered software across web, mobile, AI and IoT.',
   about:
