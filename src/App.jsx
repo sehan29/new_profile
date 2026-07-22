@@ -231,7 +231,6 @@ function App() {
 
             <Reveal className="about-statement" delay={110}>
               <p>{data.about}</p>
-              <a href={data.website} target="_blank" rel="noreferrer" className="text-link">Visit current website <ArrowUpRight /></a>
             </Reveal>
           </div>
 
