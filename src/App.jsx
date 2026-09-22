@@ -222,11 +222,9 @@ function App() {
               <div className="profile-frame">
                 <img src={data.profileImage} alt={`${data.name} profile placeholder`} />
                 <div className="profile-scanline" aria-hidden="true" />
-                <div className="profile-status"><span /> Profile image placeholder</div>
                 <div className="profile-corner profile-corner--one" aria-hidden="true" />
                 <div className="profile-corner profile-corner--two" aria-hidden="true" />
               </div>
-              <p>Replace <code>public/profile-placeholder.svg</code> with your own photo later.</p>
             </Reveal>
 
             <Reveal className="about-statement" delay={110}>
