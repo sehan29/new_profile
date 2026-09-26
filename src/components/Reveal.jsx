@@ -8,6 +8,11 @@ export default function Reveal({ children, className = '', delay = 0 }) {
     const node = ref.current;
     if (!node) return undefined;
 
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisible(true);
+      return undefined;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -15,7 +20,7 @@ export default function Reveal({ children, className = '', delay = 0 }) {
           observer.unobserve(node);
         }
       },
-      { threshold: 0.14 },
+      { threshold: 0.01, rootMargin: '0px 0px 35px 0px' },
     );
 
     observer.observe(node);

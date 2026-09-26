@@ -10,6 +10,13 @@ const iconProps = {
   'aria-hidden': true,
 };
 
+export const Code = () => <svg {...iconProps}><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16" /></svg>;
+export const Layers = () => <svg {...iconProps}><path d="m12 3 10 5-10 5L2 8l10-5Zm-10 9 10 5 10-5M2 16l10 5 10-5" /></svg>;
+export const Sparkles = () => <svg {...iconProps}><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3ZM3 2v4M1 4h4m15 14v4m-2-2h4" /></svg>;
+export const Network = () => <svg {...iconProps}><rect x="9" y="2" width="6" height="6" rx="1.5" /><rect x="2" y="16" width="6" height="6" rx="1.5" /><rect x="16" y="16" width="6" height="6" rx="1.5" /><path d="M12 8v4M5 16v-4h14v4" /></svg>;
+export const Briefcase = () => <svg {...iconProps}><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M8 7V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3M2 12a25 25 0 0 0 20 0m-10 0v3" /></svg>;
+export const Graduation = () => <svg {...iconProps}><path d="m2 9 10-5 10 5-10 5-10-5Zm4 2v6c4 3 8 3 12 0v-6m4-2v8" /></svg>;
+
 export const ArrowUpRight = () => (
   <svg {...iconProps}><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
 );

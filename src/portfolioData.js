@@ -46,7 +46,32 @@ export const portfolioData = {
       details:
         'CropGuard connects a Flutter application, ASP.NET Core APIs, a FastAPI AI service and IoT sensor nodes. YOLOv8 identifies leaf diseases while XGBoost analyzes environmental and nutrient conditions to support root-cause analysis.',
       stack: ['Flutter', 'ASP.NET Core', 'FastAPI', 'YOLOv8', 'XGBoost', 'MySQL', 'IoT'],
+      images: [
+        { src: '/projects/cropguard/cover.jpg', alt: 'CropGuard sensor dashboard showing temperature, humidity, soil moisture, pH, and NPK readings' },
+        { src: '/projects/cropguard/farmer-accounts.jpg', alt: 'CropGuard farmer account management dashboard' },
+        { src: '/projects/cropguard/root-cause-analysis.jpg', alt: 'CropGuard disease detection and root cause analysis report' },
+      ],
       accent: 'violet',
+      links: { demo: '#contact', code: '#' },
+    },
+    {
+      id: 'tms',
+      title: 'TMS',
+      subtitle: 'Tuition Management System',
+      category: 'Enterprise',
+      year: '2026',
+      impact: 'Unified academic, staff, attendance, and payment administration',
+      description:
+        'A comprehensive institute management platform for students, teachers, staff, classes, attendance, payments, and day-to-day academic operations.',
+      details:
+        'TMS gives tuition institutes a single role-aware administration portal for user registration, staff and teacher management, curriculum planning, class scheduling, attendance, fee tracking, QR workflows, and operational analytics. Its dashboard surfaces key academic and financial information while detailed management views keep institutional records organized and accessible.',
+      stack: ['React', 'ASP.NET Core', 'MySQL', 'REST API', 'Role-based Access'],
+      images: [
+        { src: '/projects/tms/cover.jpeg', alt: 'TMS institute administration dashboard with academic, attendance, and financial statistics' },
+        { src: '/projects/tms/user-management.jpeg', alt: 'TMS user registration and management interface' },
+        { src: '/projects/tms/staff-management.jpeg', alt: 'TMS teacher and staff management interface' },
+      ],
+      accent: 'cyan',
       links: { demo: '#contact', code: '#' },
     },
     {
@@ -76,6 +101,11 @@ export const portfolioData = {
       details:
         'The platform improved report creation, data availability and document generation while supporting integration-oriented enterprise workflows, including SAP-related requirements.',
       stack: ['Laravel', 'PHP', 'MySQL', 'Bootstrap', 'PDF / Word'],
+      images: [
+        { src: '/projects/mercedes/dashboard.png', alt: 'Mercedes-Benz final control report management dashboard with service analytics and recent vehicle reports' },
+        { src: '/projects/mercedes/login.png', alt: 'Mercedes-Benz Sri Lanka report management system sign-in page' },
+        { src: '/projects/mercedes/report-analysis.png', alt: 'Mercedes-Benz report management interface with vehicle reports and monthly analysis charts' },
+      ],
       accent: 'amber',
       links: { demo: '#contact', code: '#' },
     },
